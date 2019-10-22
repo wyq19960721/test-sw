@@ -1,6 +1,6 @@
 if('serviceWorker' in navigator){
     window.onload=function(){
-      navigator.serviceWorker.register('sw.js',{scope:'/test-sw/'})
+      navigator.serviceWorker.register('service-worker.js',{scope:'/test-sw/'})
       .then((reg)=>{
         var serviceWorker
         console.log(reg,'is main')
