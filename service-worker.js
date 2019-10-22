@@ -1,13 +1,12 @@
-// console.log(self.location,'location2')
-// const cacheList=['./../src/assets/other.jpeg','./../src/assets/timg.jpeg','./../src/assets/one.jpeg',]
-const cacheList=['./static/img/other.jpg']
+console.log(self.location,'location2')
+const cacheList=['./image/other.jpeg','./image/timg.jpeg','./image/one.jpeg']
 self.addEventListener('install',function(e){
     e.waitUntil(
         caches.open('v1').then((cache)=>{
             return cache.addAll(cacheList)
         }).then(()=>{
           // console.log('installation complete!')
-          // return self.skipWaiting()
+          return self.skipWaiting()
         })
     )
 })
