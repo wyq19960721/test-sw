@@ -42,6 +42,7 @@ self.addEventListener("activate", event => {
 
   self.addEventListener('fetch', function(event) {
     event.respondWith(caches.match(event.request).then(function(response) {
+        console.log('已接管')
       // caches.match() 一直是resolve的，但是成功匹配的结果会有值
       if (response !== undefined) {
         console.log(response)
