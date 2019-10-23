@@ -1,17 +1,17 @@
-console.log(self.location,'location2')
-const cacheList=['./image/other.jpeg','./image/timg.jpeg','./image/one.jpeg']
+const cacheList=['test-sw.github.io/image/other.jpeg','test-sw.github.io/image/timg.jpeg','test-sw.github.io/image/one.jpeg','test-sw.github.io/index.html']
 self.addEventListener('install',function(e){
     e.waitUntil(
-        caches.open('v1').then((cache)=>{
+        console.log('开始安装')
+        caches.open('v5').then((cache)=>{
             return cache.addAll(cacheList)
         }).then(()=>{
-          // console.log('installation complete!')
-          return self.skipWaiting()
+          console.log('installation complete!')
+//           return self.skipWaiting()
         })
     )
 })
 self.addEventListener("activate", event => {
-    // console.log(caches.keys());
+    console.log('开始激活');
     event.waitUntil(
       caches
         .keys()
@@ -23,9 +23,6 @@ self.addEventListener("activate", event => {
             })
           );
         })
-        // .then(()=>{
-        //   console.log('激活完成！')
-        // })
         .then(() => {
           console.log('激活完成')
           console.log("Clients claims.");
@@ -50,7 +47,7 @@ self.addEventListener("activate", event => {
         return fetch(event.request)
         .then(function (response) {
           let responseClone = response.clone();
-          caches.open('v3').then(function (cache) {
+          caches.open('v5').then(function (cache) {
             cache.put(event.request, responseClone);
           });
           return response;
