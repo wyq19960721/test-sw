@@ -23,7 +23,6 @@ if('serviceWorker' in navigator){
         
       })
       .catch((err) => {
-        console.log(document.location)
         console.log(':'+err)
       })
     }
