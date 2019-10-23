@@ -1,4 +1,10 @@
-const cacheList=['/','/test-sw.github.io/image/other.jpeg','/test-sw.github.io/image/timg.jpeg','/test-sw.github.io/image/one.jpeg','/test-sw.github.io/index.html']
+const cacheList=[
+    '/',
+    '/test-sw.github.io/image/other.jpeg',
+    '/test-sw.github.io/image/timg.jpeg',
+    '/test-sw.github.io/image/one.jpeg',
+    '/test-sw.github.io/index.html'
+]
 self.addEventListener('install',function(e){
     console.log('开始安装11')
     e.waitUntil(
@@ -34,11 +40,8 @@ self.addEventListener("activate", event => {
   });
 
   self.addEventListener('fetch', function(event) {
-    // if ('GET' !== event.request.method) return
-    // console.log(event.request,'cache res')
     event.respondWith(caches.match(event.request).then(function(response) {
-      // caches.match() always resolves
-      // but in case of success response will have value
+      // caches.match() 一直是resolve的，但是成功匹配的结果会有值
       if (response !== undefined) {
         console.log(response)
         return response;
