@@ -1,7 +1,7 @@
 const cacheList=['test-sw.github.io/image/other.jpeg','test-sw.github.io/image/timg.jpeg','test-sw.github.io/image/one.jpeg','test-sw.github.io/index.html']
 self.addEventListener('install',function(e){
+    console.log('开始安装')
     e.waitUntil(
-        console.log('开始安装')
         caches.open('v5').then((cache)=>{
             return cache.addAll(cacheList)
         }).then(()=>{
