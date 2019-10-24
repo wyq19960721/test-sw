@@ -48,6 +48,7 @@ self.addEventListener("activate", event => {
         console.log(response)
         return response;
       } else {
+          console.log('没找到')
         //在缓存中找不到匹配，发送请求
         return fetch(event.request)
         .then(function (response) {
