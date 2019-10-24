@@ -11,7 +11,8 @@ self.addEventListener('install',function(e){
     e.waitUntil(
         caches.open('v5').then((cache)=>{
             return cache.addAll(cacheList)
-        }).then(()=>{
+        }).then((res)=>{
+            console.log(res,'ins res')
           console.log('installation complete!')
 //           return self.skipWaiting()
         })
