@@ -26,18 +26,18 @@ self.addEventListener("activate", event => {
         .keys()
         .then(cachesToDelete => {
             console.log(cachesToDelete)
-          return Promise.all(
-            cachesToDelete.map(cacheToDelete => {
-              return caches.delete(cacheToDelete);
-            })
-          );
+//           return Promise.all(
+//             cachesToDelete.map(cacheToDelete => {
+//               return caches.delete(cacheToDelete);
+//             })
+//           );
         })
         .then(() => {
           console.log('激活完成')
           console.log("Clients claims.");
           // 立即接管所有页面，酌情处理
           // 会导致新的sw接管旧的页面
-          self.clients.claim();
+//           self.clients.claim();
         })
     );
   });
