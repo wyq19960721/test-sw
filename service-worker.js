@@ -3,6 +3,7 @@ self.addEventListener('install',function(e){
     console.log('开始安装11')
     e.waitUntil(
         caches.open('v5').then((cache)=>{
+            console.log(cache)
             return cache.addAll([
     '/',
     '/test-sw.github.io/image/other.jpeg',
