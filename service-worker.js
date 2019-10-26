@@ -1,16 +1,16 @@
-const cacheList=[
+
+self.addEventListener('install',function(e){
+    console.log('开始安装11')
+    e.waitUntil(
+        caches.open('v5').then((cache)=>{
+            return cache.addAll([
     '/',
     '/test-sw.github.io/image/other.jpeg',
     '/test-sw.github.io/image/timg.jpeg',
     '/test-sw.github.io/image/one.jpeg',
     '/test-sw.github.io/index.html',
     '/test-sw.github.io/main.js'
-]
-self.addEventListener('install',function(e){
-    console.log('开始安装11')
-    e.waitUntil(
-        caches.open('v5').then((cache)=>{
-            return cache.addAll(cacheList)
+])
         }).then((res)=>{
             console.log(res,'ins res')
           console.log('installation complete!')
