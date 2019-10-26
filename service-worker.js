@@ -2,7 +2,7 @@ const cacheList = [
     '/',
     '/test-sw.github.io/image/other.jpeg',
     '/test-sw.github.io/image/timg.jpeg',
-    '/test-sw.github.io/image/one.jpeg',
+//     '/test-sw.github.io/image/one.jpeg',
     '/test-sw.github.io/index.html',
     '/test-sw.github.io/main.js'
 ]
