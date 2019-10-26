@@ -1,17 +1,17 @@
-
-self.addEventListener('install',function(e){
-    console.log('开始安装11')
-    e.waitUntil(
-        caches.open('v5').then((cache)=>{
-            console.log(cache)
-            return cache.addAll([
+const cacheList = [
     '/',
     '/test-sw.github.io/image/other.jpeg',
     '/test-sw.github.io/image/timg.jpeg',
     '/test-sw.github.io/image/one.jpeg',
     '/test-sw.github.io/index.html',
     '/test-sw.github.io/main.js'
-])
+]
+self.addEventListener('install',function(e){
+    console.log('开始安装11')
+    e.waitUntil(
+        caches.open('v5').then((cache)=>{
+            console.log(cache)
+            return cache.addAll(cacheList)
         }).then((res)=>{
             console.log(res,'ins res')
           console.log('installation complete!')
@@ -26,11 +26,15 @@ self.addEventListener("activate", event => {
         .keys()
         .then(cachesToDelete => {
             console.log(cachesToDelete)
-//           return Promise.all(
-//             cachesToDelete.map(cacheToDelete => {
-//               return caches.delete(cacheToDelete);
-//             })
-//           );
+          return Promise.all(
+            cachesToDelete.map(key => {
+                console.log(key)
+                if(cacheToDelete.indexOf(key)===-1){
+                    return caches.delete(key);
+                }
+              
+            })
+          );
         })
         .then(() => {
           console.log('激活完成')
