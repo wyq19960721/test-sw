@@ -19,31 +19,31 @@ self.addEventListener('install',function(e){
         })
     )
 })
-// self.addEventListener("activate", event => {
-//     console.log('开始激活');
-//     event.waitUntil(
-//       caches
-//         .keys()
-//         .then(cachesToDelete => {
-//             console.log(cachesToDelete)
-//           return Promise.all(
-//             cachesToDelete.map(key => {
-//                 console.log(key)
-//                 if(cachesToDelete.indexOf(key)===-1){
-//                     return caches.delete(key);
-//                 }
-//             })
-//           );
-//         })
-//         .then(() => {
-//           console.log('激活完成')
-//           console.log("Clients claims.");
-//           // 立即接管所有页面，酌情处理
-//           // 会导致新的sw接管旧的页面
-// //           self.clients.claim();
-//         })
-//     );
-//   });
+self.addEventListener("activate", event => {
+    console.log('开始激活');
+    event.waitUntil(
+      caches
+        .keys()
+        .then(cachesToDelete => {
+            console.log(cachesToDelete)
+          return Promise.all(
+            cachesToDelete.map(key => {
+                console.log(key)
+                if(cachesToDelete.indexOf(key)===-1){
+                    return caches.delete(key);
+                }
+            })
+          );
+        })
+        .then(() => {
+          console.log('激活完成')
+          console.log("Clients claims.");
+          // 立即接管所有页面，酌情处理
+          // 会导致新的sw接管旧的页面
+//           self.clients.claim();
+        })
+    );
+  });
 
   self.addEventListener('fetch', function(event) {
       console.log('fetch')
