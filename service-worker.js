@@ -60,7 +60,7 @@ self.addEventListener("activate", event => {
         return fetch(event.request)
         .then(function (response) {
           let responseClone = response.clone();
-          caches.open('v5').then(function (cache) {
+          caches.open(cacheName).then(function (cache) {
             cache.put(event.request, responseClone);
           });
           return response;
