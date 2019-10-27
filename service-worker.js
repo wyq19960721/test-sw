@@ -2,11 +2,11 @@ const cacheList = [
     '/',
     '/test-sw.github.io/image/other.jpeg',
     '/test-sw.github.io/image/timg.jpeg',
-//     '/test-sw.github.io/image/one.jpeg',
+    '/test-sw.github.io/image/one.jpeg',
     '/test-sw.github.io/index.html',
     '/test-sw.github.io/main.js'
 ]
-const version = '1.1'
+const version = '1.2'
 const cacheName = 'v5'+version
 self.addEventListener('install',function(e){
     console.log('开始安装11')
