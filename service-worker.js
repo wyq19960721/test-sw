@@ -31,7 +31,8 @@ self.addEventListener("activate", event => {
           return Promise.all(
             cachesToDelete.map(key => {
                 console.log(key)
-                if(cachesToDelete.indexOf(version)===-1){
+                if(key.indexOf(version)===-1){
+                    console.log('act delete')
                     return caches.delete(key);
                 }
             })
