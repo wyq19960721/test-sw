@@ -6,10 +6,12 @@ const cacheList = [
     '/test-sw.github.io/index.html',
     '/test-sw.github.io/main.js'
 ]
+const version = '1.1'
+const cacheName = 'v5'+version
 self.addEventListener('install',function(e){
     console.log('开始安装11')
     e.waitUntil(
-        caches.open('v5').then((cache)=>{
+        caches.open(cacheName).then((cache)=>{
             console.log(cache)
             return cache.addAll(cacheList)
         }).then((res)=>{
@@ -29,7 +31,7 @@ self.addEventListener("activate", event => {
           return Promise.all(
             cachesToDelete.map(key => {
                 console.log(key)
-                if(cachesToDelete.indexOf(key)===-1){
+                if(cachesToDelete.indexOf(version)===-1){
                     return caches.delete(key);
                 }
             })
