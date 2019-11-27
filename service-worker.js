@@ -17,7 +17,7 @@ self.addEventListener('install',function(e){
         }).then((res)=>{
             console.log(res,'ins res')
           console.log('installation complete!')
-           return self.skipWaiting()
+           //return self.skipWaiting()
         })
     )
 })
