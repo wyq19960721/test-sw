@@ -43,7 +43,7 @@ self.addEventListener("activate", event => {
           console.log("Clients claims.");
           // 立即接管所有页面，酌情处理
           // 会导致新的sw接管旧的页面
-//           self.clients.claim();
+           self.clients.claim();
         })
     );
   });
